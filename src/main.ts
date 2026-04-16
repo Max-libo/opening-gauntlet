@@ -18,12 +18,12 @@ let   pendingPromo: { from: Square; to: Square } | null = null
 const board = new Board(boardEl, handleBoardClick)
 
 // ── Init ───────────────────────────────────────────────────
+board.render(engine)
 setStatus('Загрузка Stockfish...')
 
 sf.init(1400).then(() => {
   setStatus('Белые ходят')
   btnReset.disabled = false
-  board.render(engine)
 }).catch((err) => {
   setStatus('Ошибка движка: ' + err)
 })

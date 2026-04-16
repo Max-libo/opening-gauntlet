@@ -1,3 +1,6 @@
 node_modules/
 dist/
 .agents/
+.claude/
+skills-lock.json
+src/**/*.js

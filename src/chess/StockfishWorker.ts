@@ -9,7 +9,7 @@ export class StockfishWorker {
   get ready() { return this._ready }
 
   constructor() {
-    this.worker = new Worker('/stockfish/stockfish.js')
+    this.worker = new Worker(`${import.meta.env.BASE_URL}stockfish/stockfish.js`)
     this.worker.addEventListener('message', (e: MessageEvent<string>) => {
       this.handleLine(e.data)
     })

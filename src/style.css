@@ -70,8 +70,22 @@ main { display: flex; flex: 1; overflow: hidden; align-items: center; justify-co
   border-radius: 50%;
 }
 
-.sq .piece { cursor: grab; line-height: 1; }
+.sq .piece { cursor: grab; line-height: 1; font-family: 'Segoe UI Symbol', 'Apple Symbols', 'Noto Sans Symbols2', sans-serif; }
 .sq .piece:active { cursor: grabbing; }
+.sq .piece-w {
+  color: #fafafa;
+  text-shadow:
+    -1px -1px 0 #111, 1px -1px 0 #111,
+    -1px  1px 0 #111, 1px  1px 0 #111,
+     0   -1px 0 #111,  0    1px 0 #111,
+    -1px  0   0 #111,  1px  0   0 #111;
+}
+.sq .piece-b {
+  color: #111;
+  text-shadow:
+    -1px -1px 0 #555, 1px -1px 0 #555,
+    -1px  1px 0 #555, 1px  1px 0 #555;
+}
 
 /* rank / file labels */
 .sq .coord {

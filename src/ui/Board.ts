@@ -1,8 +1,7 @@
-import type { ChessEngine, Square, PieceSymbol, Color, Move } from '../chess/ChessEngine'
+import type { ChessEngine, Square, PieceSymbol, Move } from '../chess/ChessEngine'
 
-const PIECE_UNICODE: Record<Color, Record<PieceSymbol, string>> = {
-  w: { k: '♔', q: '♕', r: '♖', b: '♗', n: '♘', p: '♙' },
-  b: { k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟' },
+const PIECE_UNICODE: Record<PieceSymbol, string> = {
+  k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟',
 }
 
 const FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] as const
@@ -107,8 +106,8 @@ export class Board {
       const el = this.squares.get(square)
       if (!el) continue
       const span = document.createElement('span')
-      span.className = 'piece'
-      span.textContent = PIECE_UNICODE[color][type]
+      span.className = `piece piece-${color}`
+      span.textContent = PIECE_UNICODE[type]
       el.appendChild(span)
     }
 

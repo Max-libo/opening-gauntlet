@@ -118,12 +118,15 @@ export class Board {
     // (set by setLastMove)
   }
 
-  setLastMove(move: Move) {
+  setLastMove(move: Move, kind: 'book' | 'normal' = 'normal') {
     if (this.lastMove) {
-      for (const sq of this.lastMove) this.squares.get(sq)?.classList.remove('last-move')
+      for (const sq of this.lastMove) {
+        this.squares.get(sq)?.classList.remove('last-move', 'last-move-book')
+      }
     }
     this.lastMove = [move.from as Square, move.to as Square]
-    for (const sq of this.lastMove) this.squares.get(sq)?.classList.add('last-move')
+    const cls = kind === 'book' ? 'last-move-book' : 'last-move'
+    for (const sq of this.lastMove) this.squares.get(sq)?.classList.add(cls)
   }
 
   flip() {

@@ -19,6 +19,14 @@ export class ChessEngine {
     }
   }
 
+  moveBySan(san: string): Move | null {
+    try {
+      return this.chess.move(san)
+    } catch {
+      return null
+    }
+  }
+
   getLegalTargets(square: Square): Square[] {
     return this.chess
       .moves({ square, verbose: true })
